@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kandula Koteswararao | Software Engineer </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Kandula Koteswararao - Software Engineer Intern skilled in Python, web development, cloud, cybersecurity, and AI projects."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #050816, #1f1037, #301f6a, #ff4f8b);
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+      --accent: #ff7ac4;
+      --accent-2: #4fd1ff;
+      --text-main: #f9fafb;
+      --text-muted: #cbd5f5;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-xl: 24px;
+      --transition-fast: 0.25s ease;
+      --max-width: 1120px;
+    }
+
+    /* Light theme overrides */
+    html.light-theme {
+      --bg-gradient: radial-gradient(circle at top, #f9fafb, #e5e7eb, #d1d5db);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --glass-border: 1px solid rgba(148, 163, 184, 0.45);
+      --accent: #ec4899;
+      --accent-2: #0ea5e9;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --shadow-soft: 0 16px 36px rgba(15, 23, 42, 0.18);
+    }
+
+    /* Neon theme overrides */
+    html.neon-theme {
+      --bg-gradient: linear-gradient(145deg, #18002a, #40065c, #7d0070);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent: #ff48e1;
+      --accent-2: #3bdcff;
+      --text-main: #ffffff;
+      --text-muted: #d6cff5;
+      --glass-border: 1px solid rgba(255, 255, 255, 0.22);
+      --shadow-soft: 0 0 25px rgba(255, 0, 191, 0.5);
+    }
+
+    html.neon-theme .realtime-media img,
+    html.neon-theme .realtime-media video {
+      box-shadow: 0 0 28px rgba(255, 0, 191, 0.6);
+    }
+
+    /* Blue theme overrides */
+    html.blue-theme {
+      --bg-gradient: linear-gradient(135deg, #020617, #0f172a, #1d4ed8);
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --glass-border: 1px solid rgba(59, 130, 246, 0.6);
+      --accent: #38bdf8;
+      --accent-2: #60a5fa;
+      --text-main: #e5f2ff;
+      --text-muted: #9ca3af;
+      --shadow-soft: 0 20px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    html.blue-theme .realtime-media img,
+    html.blue-theme .realtime-media video {
+      box-shadow: 0 0 28px rgba(59, 130, 246, 0.8);
+    }
+
+    /* Orange theme overrides */
+    html.orange-theme {
+      --bg-gradient: linear-gradient(135deg, #311300, #7c2d12, #ea580c, #f97316);
+      --card-bg: rgba(24, 16, 8, 0.9);
+      --glass-border: 1px solid rgba(251, 146, 60, 0.7);
+      --accent: #fb923c;
+      --accent-2: #fed7aa;
+      --text-main: #fff7ed;
+      --text-muted: #fed7aa;
+      --shadow-soft: 0 20px 44px rgba(124, 45, 18, 0.9);
+    }
+
+    html.orange-theme .realtime-media img,
+    html.orange-theme .realtime-media video {
+      box-shadow: 0 0 28px rgba(251, 146, 60, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    html.font-small {
+      font-size: 14px;
+    }
+
+    html.font-large {
+      font-size: 18px;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      scroll-behavior: smooth;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    body.page-loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    html.no-animations body {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ====== Layout ====== */
+
+    .page {
+      min-height: 100vh;
+      padding: 18px 16px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 55%);
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 20%, #ffffff, #ff7ac4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(255, 122, 196, 0.7);
+      overflow: hidden;
+    }
+
+    .logo-badge img {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+    }
+
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .brand-info span:first-child {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .brand-info span:last-child {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      font-size: 12px;
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background var(--transition-fast), color var(--transition-fast), border var(--transition-fast), transform var(--transition-fast);
+    }
+
+    nav a:hover {
+      background: rgba(15, 23, 42, 0.7);
+      color: #ffffff;
+      border-color: rgba(148, 163, 184, 0.7);
+      transform: translateY(-1px);
+    }
+
+    html.light-theme nav a:hover {
+      background: rgba(15, 23, 42, 0.08);
+      color: #111827;
+    }
+
+    /* ====== Theme toggle button ====== */
+
+    .theme-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--text-main);
+      overflow: hidden;
+    }
+
+    html.light-theme .theme-toggle {
+      background: rgba(243, 244, 246, 0.9);
+    }
+
+    .theme-toggle[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out, bottom 0.2s ease-out;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .theme-toggle:hover::after {
+      opacity: 1;
+      bottom: -24px;
+    }
+
+    /* ====== Sections ====== */
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span {
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), var(--accent-2));
+      border-radius: 999px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* ====== Hero ====== */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+      gap: 26px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(120deg, #ffffff, #ffb3e6, #7dd3fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-role {
+      font-size: 15px;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    #role-typing {
+      white-space: nowrap;
+    }
+
+    .role-cursor {
+      font-size: 16px;
+      opacity: 1;
+      animation: blink 1s step-end infinite;
+    }
+
+    html.no-animations .role-cursor {
+      animation: none;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .hero-summary {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .hero-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      font-size: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .social-pill:hover {
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-contact a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    .hero-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 8px 18px;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border var(--transition-fast), color var(--transition-fast);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 20% 0, #ffffff, #ff7ac4);
+      color: #111827;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: rgba(248, 250, 252, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .btn-small {
+      font-size: 11px;
+      padding: 4px 10px;
+      margin-top: 6px;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.1), rgba(15, 23, 42, 0.9));
+      border-radius: 28px;
+      border: var(--glass-border);
+      padding: 16px 16px 18px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    html.light-theme .hero-card {
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), rgba(229, 231, 235, 0.95));
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 180deg, rgba(79, 209, 255, 0.06), rgba(255, 122, 196, 0.17), transparent 35%, transparent 65%, rgba(79, 209, 255, 0.18));
+      filter: blur(6px);
+      opacity: 0.8;
+      animation: spin 18s linear infinite;
+    }
+
+    html.no-animations .hero-orbit {
+      animation: none;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-profile {
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0 auto 14px;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 25px rgba(255, 122, 196, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hero-profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-profile:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 0 40px rgba(255, 122, 196, 0.8);
+      border-color: var(--accent-2);
+    }
+
+    .hero-tagline {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+      justify-content: center;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      backdrop-filter: blur(6px);
+      white-space: nowrap;
+    }
+
+    html.light-theme .pill {
+      background: rgba(243, 244, 246, 0.9);
+    }
+
+    .hero-highlight {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .metric {
+      flex: 1 1 90px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.75);
+      font-size: 11px;
+    }
+
+    html.light-theme .metric {
+      background: rgba(243, 244, 246, 0.95);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .metric span {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* ====== Cards & Grids ====== */
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: var(--glass-border);
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border var(--transition-fast), background var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9);
+      border-color: rgba(248, 250, 252, 0.35);
+      background: rgba(15, 23, 42, 0.92);
+    }
+
+    html.light-theme .card:hover {
+      background: #ffffff;
+      box-shadow: 0 18px 40px rgba(148, 163, 184, 0.4);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-title {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--accent-2);
+      margin-bottom: 8px;
+    }
+
+    .card-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      list-style: none;
+    }
+
+    .card-list li {
+      margin-bottom: 4px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .card-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      color: var(--accent);
+    }
+
+    /* ====== Skills ====== */
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .skill-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-main);
+    }
+
+    html.light-theme .skill-tag {
+      background: #f3f4f6;
+    }
+
+    /* ====== Real-time Projects ====== */
+
+    .realtime-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .realtime-media {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .realtime-media img,
+    .realtime-media video {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+      object-fit: cover;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .media-video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+    }
+
+    .media-video-wrapper video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .realtime-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .realtime-links {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ====== Contact ====== */
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+    }
+
+    .form-group label {
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 8px 10px;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 12px;
+      outline: none;
+      resize: vertical;
+    }
+
+    html.light-theme .form-group input,
+    html.light-theme .form-group textarea {
+      background: #f9fafb;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: rgba(248, 250, 252, 0.9);
+      box-shadow: 0 0 0 1px rgba(248, 250, 252, 0.4);
+    }
+
+    .contact-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .mini-card {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mini-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(148, 163, 184, 0.9);
+    }
+
+    .mini-card a {
+      color: var(--accent-2);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .mini-card a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ====== Scroll Reveal ====== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    html.no-animations .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    /* ====== Modals ====== */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    html.light-theme .modal-backdrop {
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    .modal {
+      position: relative;
+      max-width: 520px;
+      width: 92%;
+      background: var(--card-bg);
+      border-radius: 20px;
+      border: var(--glass-border);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+      backdrop-filter: blur(18px);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .modal-title {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .modal-meta {
+      font-size: 12px;
+      color: var(--accent-2);
+      margin-bottom: 10px;
+    }
+
+    .modal-summary {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .modal-subtitle {
+      font-size: 13px;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .modal-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-left: 18px;
+      margin-bottom: 8px;
+    }
+
+    .modal-list li {
+      margin-bottom: 4px;
+    }
+
+    .modal-details {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .modal-media-content {
+      margin-top: 8px;
+    }
+
+    .modal-media-content img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .modal-caption {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* ====== Settings panel ====== */
+
+    .settings-panel {
+      position: fixed;
+      right: 16px;
+      bottom: 18px;
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .settings-toggle {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .settings-toggle:hover {
+      transform: translateY(-2px) rotate(10deg);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .settings-body {
+      width: 230px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      border: var(--glass-border);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+      font-size: 11px;
+    }
+
+    html.light-theme .settings-body {
+      background: rgba(249, 250, 251, 0.97);
+    }
+
+    .settings-section {
+      margin-bottom: 8px;
+    }
+
+    .settings-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .settings-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .settings-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text-main);
+      padding: 4px 8px;
+      font-size: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .settings-chip.active {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 10px rgba(79, 209, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    html.light-theme .settings-chip {
+      background: rgba(243, 244, 246, 0.9);
+    }
+
+    .settings-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .settings-checkbox input {
+      accent-color: var(--accent-2);
+    }
+
+    /* ====== Certificate media grid ====== */
+
+    .cert-media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .cert-item {
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 16px;
+      padding: 6px;
+      border: var(--glass-border);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    html.light-theme .cert-item {
+      background: rgba(243, 244, 246, 0.9);
+    }
+
+    .cert-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.85);
+      border-color: rgba(248, 250, 252, 0.7);
+    }
+
+    .cert-item img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .cert-item-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    /* ====== Responsive ====== */
+
+    @media (max-width: 840px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+      }
+      .header-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .contact-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .realtime-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 12px;
+      }
+      header {
+        padding-inline: 10px;
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .header-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .theme-toggle {
+        align-self: flex-end;
+      }
+      .settings-panel {
+        right: 10px;
+        bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <!-- ====== NAVBAR ====== -->
+      <header>
+        <div class="brand">
+          <div class="logo-badge">
+            <img src="assets/media/profile.jpg" alt="Logo - Kandula Koteswararao" />
+          </div>
+          <div class="brand-info">
+            <span>Kandula Koteswararao</span>
+            <span>Software Engineer | Web Developer | IoT | AI & Cybersecurity</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#realtime">Real-time Projects</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle theme"
+            data-tooltip="Auto theme: ON (double tap to stop)"
+          >
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ====== HERO ====== -->
+      <main>
+        <section class="hero reveal" id="about">
+          <div class="hero-text">
+            <h1>Hi, I’m <span>Kandula Koteswararao</span></h1>
+            <div class="hero-role">
+              <span id="role-typing">Software Engineer | Cloud · Web · Security · AI</span>
+              <span class="role-cursor">|</span>
+            </div>
+            <p class="hero-summary">
+              Motivated Software Engineer and IT student with hands-on experience in web development,
+              cloud computing, cybersecurity, and AI-driven projects. I focus on writing clean, efficient
+              code and love building secure, real-world applications that solve meaningful problems.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="assets/Koteswararao_SEIntern.pdf" download>
+                📄 Download Resume
+              </a>
+              <a class="btn btn-ghost" href="#projects">🚀 View Projects</a>
+              <a class="btn btn-ghost" href="#contact">✉️ Contact Me</a>
+            </div>
+
+            <div class="hero-socials">
+              <a
+                href="https://linkedin.com/in/kandula-koteswararao"
+                target="_blank"
+                rel="noreferrer"
+                class="social-pill"
+              >
+                <span>🔗</span> <span>LinkedIn</span>
+              </a>
+              <a
+                href="https://github.com/"
+                target="_blank"
+                rel="noreferrer"
+                class="social-pill"
+              >
+                <span>💻</span> <span>GitHub</span>
+              </a>
+            </div>
+
+            <div class="hero-contact">
+              <span>📞 <strong>+91-7075656569</strong></span>
+              <span>📧 <a href="mailto:koteswararaokandula41@gmail.com">koteswararaokandula41@gmail.com</a></span>
+              <span>🔗 <a href="https://linkedin.com/in/kandula-koteswararao" target="_blank" rel="noreferrer">linkedin.com/in/kandula-koteswararao</a></span>
+            </div>
+          </div>
+
+          <aside class="hero-card">
+            <div class="hero-orbit"></div>
+            <div class="hero-card-inner">
+              <div class="hero-profile">
+                <img src="assets/media/profile.jpg" alt="Profile photo of Kandula Koteswararao" />
+              </div>
+              <div class="hero-tagline">Impact through secure, scalable systems</div>
+              <div class="hero-pill-row">
+                <span class="pill">Python &amp; Full-Stack Dev</span>
+                <span class="pill">AWS Cloud &amp; CI/CD</span>
+                <span class="pill">Cybersecurity &amp; Steganography</span>
+                <span class="pill">Real-time Web Apps</span>
+              </div>
+              <p class="hero-highlight">
+                Currently pursuing a B.Tech in Information Technology (Graduation: 2026) and gaining
+                hands-on experience through internships and projects in cloud, web, and security-focused
+                systems.
+              </p>
+              <div class="hero-metrics">
+                <div class="metric">
+                  <strong>4+</strong>
+                  <span>Internships in web, cloud &amp; security</span>
+                </div>
+                <div class="metric">
+                  <strong>3+</strong>
+                  <span>End-to-end projects delivered</span>
+                </div>
+                <div class="metric">
+                  <strong>2026</strong>
+                  <span>B.Tech (IT) Graduation year</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- ====== SKILLS ====== -->
+        <section id="skills" class="reveal">
+          <h2 class="section-title"><span></span>Skills</h2>
+          <p class="section-subtitle">
+            A blend of software engineering, cloud, cybersecurity, and IoT to design and ship secure, scalable applications.
+          </p>
+          <div class="grid grid-2">
+            <div class="card">
+              <h3 class="card-title">Programming &amp; Querying</h3>
+              <p class="card-meta">Writing clean, maintainable, and testable code.</p>
+              <div class="skills-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java (Basic)</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML &amp; CSS</span>
+                <span class="skill-tag">SQL</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Cybersecurity</h3>
+              <p class="card-meta">Security-first mindset for apps and infrastructure.</p>
+              <div class="skills-tags">
+                <span class="skill-tag">Vulnerability Assessment</span>
+                <span class="skill-tag">Network Monitoring</span>
+                <span class="skill-tag">Wireshark</span>
+                <span class="skill-tag">Nmap</span>
+                <span class="skill-tag">Burp Suite</span>
+                <span class="skill-tag">Metasploit</span>
+                <span class="skill-tag">Kali Linux</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Cloud &amp; DevOps</h3>
+              <p class="card-meta">Building and delivering on modern cloud platforms.</p>
+              <div class="skills-tags">
+                <span class="skill-tag">AWS (EC2, S3)</span>
+                <span class="skill-tag">CI/CD Basics</span>
+                <span class="skill-tag">Git &amp; GitHub</span>
+                <span class="skill-tag">Automation</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">IoT &amp; Hardware</h3>
+              <p class="card-meta">Connecting software with the physical world.</p>
+              <div class="skills-tags">
+                <span class="skill-tag">Arduino</span>
+                <span class="skill-tag">ESP8266 / ESP32</span>
+                <span class="skill-tag">Sensors &amp; Prototyping</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== EXPERIENCE ====== -->
+        <section id="experience" class="reveal">
+          <h2 class="section-title"><span></span>Internship Experience</h2>
+          <p class="section-subtitle">
+            Applying concepts from the classroom to real-world systems in cloud, security, and web development.
+          </p>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3 class="card-title">Information Security Intern</h3>
+              <p class="card-subtitle">Greytha Information Security Pvt. Ltd · Feb 2025 – Jul 2025</p>
+              <p class="card-meta">Domain: Information Security &amp; Network Security</p>
+              <ul class="card-list">
+                <li>Completed a long-term internship focused on information security fundamentals and best practices.</li>
+                <li>Worked on securing systems and understanding real-time threat scenarios and mitigation strategies.</li>
+              </ul>
+              <button
+                class="btn btn-ghost btn-small"
+                type="button"
+                data-exp-img="assets/media/cert-theta.png"
+                data-exp-caption="Information Security Internship certificate - Greytha Information Security Pvt. Ltd"
+              >
+                📜 View certificate
+              </button>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">AWS Cloud DevOps Intern</h3>
+              <p class="card-subtitle">Exclr (Virtual) · May 2025 – Jul 2025</p>
+              <p class="card-meta">Tools: AWS, Git, CI/CD</p>
+              <ul class="card-list">
+                <li>Assisted in configuring core AWS services and setting up CI/CD pipelines for deployments.</li>
+                <li>Automated deployment steps to reduce manual effort and improve release consistency.</li>
+              </ul>
+              <button
+                class="btn btn-ghost btn-small"
+                type="button"
+                data-exp-img="assets/media/cert-aws.png"
+                data-exp-caption="AWS Cloud DevOps Internship certificate"
+              >
+                📜 View certificate
+              </button>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Steganography Tool Intern</h3>
+              <p class="card-subtitle">Supraja Technology (Onsite) · 2024</p>
+              <p class="card-meta">Tools: Python, SQL</p>
+              <ul class="card-list">
+                <li>Developed a secure data-hiding tool embedding encrypted information into digital media using Python.</li>
+                <li>Integrated multi-format support (images/audio) with minimal perceptual distortion for practical use.</li>
+              </ul>
+              <button
+                class="btn btn-ghost btn-small"
+                type="button"
+                data-exp-img="assets/media/cert-steg.png"
+                data-exp-caption="Steganography internship certificate"
+              >
+                📜 View certificate
+              </button>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Web Development Intern</h3>
+              <p class="card-subtitle">Swecha (Virtual) · May 2024 – Jul 2024</p>
+              <p class="card-meta">Tools: HTML, CSS, JavaScript, PHP, Database</p>
+              <ul class="card-list">
+                <li>Built interactive, responsive web modules improving usability and accessibility.</li>
+                <li>Collaborated on front-end improvements to enhance UI/UX performance.</li>
+              </ul>
+              <button
+                class="btn btn-ghost btn-small"
+                type="button"
+                data-exp-img="assets/media/cert-web.png"
+                data-exp-caption="Web development internship certificate"
+              >
+                📜 View certificate
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <!-- ====== PROJECTS ====== -->
+        <section id="projects" class="reveal">
+          <h2 class="section-title"><span></span>Projects</h2>
+          <p class="section-subtitle">
+            A selection of projects that combine security, analytics, and real-time interaction with clean engineering practices.
+          </p>
+
+          <div class="grid grid-3">
+            <article class="card">
+              <h3 class="card-title">Steganography Tool</h3>
+              <p class="card-subtitle">Python · Security · 2025</p>
+              <p class="card-meta">
+                Secure data hiding using cryptography and adaptive LSB techniques.
+              </p>
+              <ul class="card-list">
+                <li>Developed a Python-based data-hiding tool using AES-256 and adaptive LSB to securely embed payloads in images and audio.</li>
+                <li>Integrated CRC checks and redundancy to ensure reliable decoding with minimal distortion.</li>
+              </ul>
+              <button class="btn btn-ghost btn-small" type="button" data-project="steg">
+                🔍 View details
+              </button>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Student Exit Survey Web App</h3>
+              <p class="card-subtitle">PHP · MySQL · JS · Python · Feb–May 2025</p>
+              <p class="card-meta">
+                Full-stack application for academic feedback and analytics.
+              </p>
+              <ul class="card-list">
+                <li>Built a secure feedback system with authentication and automated MySQL data ingestion.</li>
+                <li>Implemented PO analytics and interactive visual reports; deployed on the college intranet.</li>
+              </ul>
+              <button class="btn btn-ghost btn-small" type="button" data-project="exit">
+                🔍 View details
+              </button>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Secure Chat Web App</h3>
+              <p class="card-subtitle">Python · Flask-SocketIO · Feb–Jun 2025</p>
+              <p class="card-meta">
+                Real-time encrypted messaging with integrity checks.
+              </p>
+              <ul class="card-list">
+                <li>Implemented real-time messaging and file sharing secured with AES/RSA and token-based authentication.</li>
+                <li>Used SHA-256 integrity checks and key rotation for confidential, tamper-proof communication.</li>
+              </ul>
+              <button class="btn btn-ghost btn-small" type="button" data-project="chat">
+                🔍 View details
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <!-- ====== REAL-TIME PROJECTS ====== -->
+        <section id="realtime" class="reveal">
+          <h2 class="section-title"><span></span>Real-time Projects</h2>
+          <p class="section-subtitle">
+            Real-time, interactive applications with live communication, analytics, and production-style behavior.
+          </p>
+
+          <div class="realtime-grid">
+            <article class="card">
+              <div class="realtime-media">
+                <img
+                  src="assets/media/exit-survey-ui.png"
+                  alt="Student Exit Survey dashboard"
+                />
+                <div class="media-video-wrapper">
+                  <video controls>
+                    <source src="assets/media/exit-survey-walkthrough.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              <h3 class="card-title">Student Exit Survey (Live Analytics)</h3>
+              <p class="realtime-meta">PHP · MySQL · JS · Data Visualization</p>
+              <p class="card-meta">
+                Real-time insights into student feedback with PO-mapped dashboards.
+              </p>
+              <ul class="card-list">
+                <li>Live dashboards that update as new survey submissions arrive.</li>
+                <li>Secure authentication and structured MySQL-backed analytics.</li>
+              </ul>
+              <div class="realtime-links">
+                <button
+                  class="btn btn-ghost btn-small"
+                  type="button"
+                  data-exp-img="assets/media/exit-survey-ui.png"
+                  data-exp-caption="Student Exit Survey dashboard UI"
+                >
+                  🔍 View dashboard image
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ====== CERTIFICATES (SEPARATE BLOCK) ====== -->
+        <section id="certificates" class="reveal">
+          <h2 class="section-title"><span></span>Certificates</h2>
+          <p class="section-subtitle">
+            Verified learning and internships — click any certificate to view it clearly.
+          </p>
+
+          <div class="card">
+            <ul class="card-list">
+              <li><strong>Information Security Internship</strong> — Greytha Information Security Pvt. Ltd · 2025</li>
+              <li><strong>AWS Cloud DevOps Internship</strong> — Exclr (Virtual) · 2025</li>
+              <li><strong>Steganography Tool Internship</strong> — Supraja Technology · 2024</li>
+              <li><strong>Web Development Internship</strong> — Swecha · 2024</li>
+              <li><strong>Generative AI — Coursera (2025)</strong></li>
+              <li><strong>Python Programming — CodeTantra (2024)</strong></li>
+              <li><strong>Avishkar Research Convention Certificate</strong></li>
+            </ul>
+
+            <!-- Certificate media gallery (single clean grid) -->
+            <div class="cert-media-grid">
+              <div
+                class="cert-item"
+                data-exp-img="assets/media/cert-theta.png"
+                data-exp-caption="Information Security Internship certificate - Greytha Information Security Pvt. Ltd"
+              >
+                <img src="assets/media/cert-theta.png" alt="Information Security Internship certificate" />
+                <div class="cert-item-label">GREYTHETA Internship</div>
+              </div>
+
+              <div
+                class="cert-item"
+                data-exp-img="assets/media/cert-aws.png"
+                data-exp-caption="AWS Cloud DevOps Internship certificate"
+              >
+                <img src="assets/media/cert-aws.png" alt="AWS Cloud DevOps Internship certificate" />
+                <div class="cert-item-label">AWS Cloud DevOps Internship</div>
+              </div>
+
+              <div
+                class="cert-item"
+                data-exp-img="assets/media/cert-steg.png"
+                data-exp-caption="Steganography Tool Internship certificate"
+              >
+                <img src="assets/media/cert-steg.png" alt="Steganography Tool Internship certificate" />
+                <div class="cert-item-label">SUPRAJA Internship</div>
+              </div>
+
+              <div
+                class="cert-item"
+                data-exp-img="assets/media/cert-genai.png"
+                data-exp-caption="Generative AI certificate (Coursera)"
+              >
+                <img src="assets/media/cert-genai.png" alt="Generative AI certificate" />
+                <div class="cert-item-label">Generative AI</div>
+              </div>
+
+              <div
+                class="cert-item"
+                data-exp-img="assets/media/cert-python.png"
+                data-exp-caption="Python Programming certificate (CodeTantra)"
+              >
+                <img src="assets/media/cert-python.png" alt="Python Programming certificate" />
+                <div class="cert-item-label">Python Programming</div>
+              </div>
+
+              <div
+                class="cert-item"
+                data-exp-img="assets/media/cert-avishkar.png"
+                data-exp-caption="Avishkar research convention certificate"
+              >
+                <img src="assets/media/cert-avishkar.png" alt="Avishkar research convention certificate" />
+                <div class="cert-item-label">Avishkar Certificate</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== EDUCATION (SEPARATE BLOCK) ====== -->
+        <section id="education" class="reveal">
+          <h2 class="section-title"><span></span>Education</h2>
+          <p class="section-subtitle">
+            Academic foundation focused on software engineering, cloud computing, and cybersecurity.
+          </p>
+
+          <div class="card">
+            <h3 class="card-title">B.Tech in Information Technology</h3>
+            <ul class="card-list">
+              <li><strong>Institute:</strong> PSCMR College of Engineering &amp; Technology, Vijayawada</li>
+              <li><strong>Graduation Year:</strong> 2026</li>
+              <li>Coursework includes software engineering, data structures, databases, cloud computing, and cybersecurity.</li>
+              <li>Actively involved in project-based learning, research conventions, and industry internships.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ====== CONTACT ====== -->
+        <section id="contact" class="reveal">
+          <h2 class="section-title"><span></span>Contact</h2>
+          <p class="section-subtitle">
+            Open to software engineering, cloud, security, and full-stack roles &amp; internships. Let’s build something impactful.
+          </p>
+
+          <div class="contact-wrapper">
+            <div class="card">
+              <!-- Netlify form backend -->
+              <form
+                class="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="4" placeholder="Tell me about the opportunity or project..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+                <p class="contact-note">
+                  This form is ready for Netlify: just deploy this site there and enable form handling in the dashboard.
+                </p>
+              </form>
+            </div>
+
+            <div class="card mini-card">
+              <div>
+                <div class="mini-label">Email</div>
+                <a href="mailto:koteswararaokandula41@gmail.com">koteswararaokandula41@gmail.com</a>
+              </div>
+              <div>
+                <div class="mini-label">Phone</div>
+                <span>+91-7075656569</span>
+              </div>
+              <div>
+                <div class="mini-label">LinkedIn</div>
+                <a href="https://linkedin.com/in/kandula-koteswararao" target="_blank" rel="noreferrer">
+                  linkedin.com/in/kandula-koteswararao
+                </a>
+              </div>
+              <div>
+                <div class="mini-label">Location</div>
+                <span>India · Open to remote &amp; onsite roles</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        © <span id="year"></span> Kandula Koteswararao. Built with curiosity, clean code, and coffee.
+      </footer>
+    </div>
+  </div>
+
+  <!-- ====== PROJECT MODAL ====== -->
+  <div id="project-modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal">
+      <button class="modal-close" type="button" id="modal-close-btn">✕</button>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <p class="modal-meta" id="modal-meta"></p>
+      <p class="modal-summary" id="modal-summary"></p>
+      <h4 class="modal-subtitle">Highlights</h4>
+      <ul class="modal-list" id="modal-highlights"></ul>
+      <h4 class="modal-subtitle">More details</h4>
+      <p class="modal-details" id="modal-details"></p>
+    </div>
+  </div>
+
+  <!-- ====== IMAGE MODAL (experience + realtime + cert images) ====== -->
+  <div id="media-modal-backdrop" class="modal-backdrop hidden">
+    <div class="modal">
+      <button class="modal-close" type="button" id="media-modal-close-btn">✕</button>
+      <h3 class="modal-title" id="media-modal-title">Preview</h3>
+      <div class="modal-media-content" id="media-modal-content"></div>
+      <p class="modal-caption" id="media-modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- ====== SETTINGS PANEL ====== -->
+  <div class="settings-panel">
+    <button class="settings-toggle" id="settings-toggle" type="button" aria-label="Open settings">
+      ⚙
+    </button>
+    <div class="settings-body hidden" id="settings-body">
+      <div class="settings-section">
+        <div class="settings-title">Theme (auto changes every 5s)</div>
+        <div class="settings-options">
+          <button class="settings-chip" data-set-theme="dark">🌙 Dark</button>
+          <button class="settings-chip" data-set-theme="light">☀️ Light</button>
+          <button class="settings-chip" data-set-theme="blue">🌊 Blue</button>
+          <button class="settings-chip" data-set-theme="neon">⚡ Neon</button>
+          <button class="settings-chip" data-set-theme="orange">🔥 Orange</button>
+        </div>
+      </div>
+      <div class="settings-section">
+        <div class="settings-title">Font size</div>
+        <div class="settings-options">
+          <button class="settings-chip" data-font="small">A-</button>
+          <button class="settings-chip" data-font="normal">A</button>
+          <button class="settings-chip" data-font="large">A+</button>
+        </div>
+      </div>
+      <div class="settings-section">
+        <label class="settings-checkbox">
+          <input type="checkbox" id="animations-toggle" checked />
+          <span>Enable animations</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const THEME_KEY = "kk-portfolio-theme";
+    const FONT_KEY = "kk-portfolio-font";
+    const ANIM_KEY = "kk-portfolio-anim";
+    const THEME_SEQUENCE = ["dark", "light", "blue", "neon", "orange"];
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+
+    function applyTheme(theme) {
+      const html = document.documentElement;
+      html.classList.remove("light-theme", "neon-theme", "blue-theme", "orange-theme");
+
+      if (theme === "light") {
+        html.classList.add("light-theme");
+        themeIcon.textContent = "☀️";
+      } else if (theme === "blue") {
+        html.classList.add("blue-theme");
+        themeIcon.textContent = "🌊";
+      } else if (theme === "neon") {
+        html.classList.add("neon-theme");
+        themeIcon.textContent = "⚡";
+      } else if (theme === "orange") {
+        html.classList.add("orange-theme");
+        themeIcon.textContent = "🔥";
+      } else {
+        themeIcon.textContent = "🌙"; // dark
+      }
+    }
+
+    function highlightThemeChip(theme) {
+      document.querySelectorAll("[data-set-theme]").forEach(btn => {
+        if (btn.getAttribute("data-set-theme") === theme) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+    }
+
+    function applyFontSize(size) {
+      const html = document.documentElement;
+      html.classList.remove("font-small", "font-large");
+      if (size === "small") html.classList.add("font-small");
+      if (size === "large") html.classList.add("font-large");
+    }
+
+    function highlightFontChip(size) {
+      document.querySelectorAll("[data-font]").forEach(btn => {
+        if (btn.getAttribute("data-font") === size) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+    }
+
+    function applyAnimations(enabled) {
+      const html = document.documentElement;
+      if (!enabled) {
+        html.classList.add("no-animations");
+      } else {
+        html.classList.remove("no-animations");
+      }
+    }
+
+    const savedTheme = localStorage.getItem(THEME_KEY) || "dark";
+    const savedFont = localStorage.getItem(FONT_KEY) || "normal";
+    const savedAnim =
+      localStorage.getItem(ANIM_KEY) === null
+        ? true
+        : localStorage.getItem(ANIM_KEY) === "true";
+
+    applyTheme(savedTheme);
+    applyFontSize(savedFont);
+    applyAnimations(savedAnim);
+    highlightThemeChip(savedTheme);
+    highlightFontChip(savedFont);
+
+    // Page entrance animation
+    if (!savedAnim) {
+      document.body.classList.add("page-loaded");
+    } else {
+      window.addEventListener("load", () => {
+        document.body.classList.add("page-loaded");
+      });
+    }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll(".reveal");
+    if (savedAnim) {
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.18 }
+      );
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add("visible"));
+    }
+
+    // Typing animation for role
+    const roles = [
+      "Software Engineer — Intern",
+      "Cloud · Web · Security · AI",
+      "Building secure, scalable systems"
+    ];
+    const typingSpan = document.getElementById("role-typing");
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeLoop() {
+      if (document.documentElement.classList.contains("no-animations")) {
+        typingSpan.textContent = roles[0] + " | Cloud · Web · Security · AI";
+        return;
+      }
+
+      const current = roles[roleIndex];
+      if (!deleting) {
+        charIndex++;
+        if (charIndex > current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1000);
+          typingSpan.textContent = current;
+          return;
+        }
+      } else {
+        charIndex--;
+        if (charIndex <= 0) {
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      }
+      typingSpan.textContent = current.slice(0, charIndex);
+      const delay = deleting ? 50 : 90;
+      setTimeout(typeLoop, delay);
+    }
+
+    setTimeout(typeLoop, 600);
+
+    // ===== Theme cycling: auto + double-click toggle =====
+    let autoThemeIndex = THEME_SEQUENCE.indexOf(savedTheme);
+    if (autoThemeIndex === -1) autoThemeIndex = 0;
+
+    let autoThemeEnabled = true;
+    let autoThemeTimer = null;
+
+    function cycleTheme() {
+      autoThemeIndex = (autoThemeIndex + 1) % THEME_SEQUENCE.length;
+      const next = THEME_SEQUENCE[autoThemeIndex];
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+      highlightThemeChip(next);
+    }
+
+    function startAutoTheme() {
+      if (autoThemeTimer) clearInterval(autoThemeTimer);
+      autoThemeTimer = setInterval(() => {
+        cycleTheme();
+      }, 5000);
+    }
+
+    function stopAutoTheme() {
+      if (autoThemeTimer) {
+        clearInterval(autoThemeTimer);
+        autoThemeTimer = null;
+      }
+    }
+
+    // single click = change theme once
+    themeToggleBtn.addEventListener("click", () => {
+      cycleTheme();
+    });
+
+    // double click = toggle auto mode (ON/OFF)
+    themeToggleBtn.addEventListener("dblclick", () => {
+      autoThemeEnabled = !autoThemeEnabled;
+      if (autoThemeEnabled) {
+        startAutoTheme();
+        themeToggleBtn.setAttribute("data-tooltip", "Auto theme: ON (double tap to stop)");
+      } else {
+        stopAutoTheme();
+        themeToggleBtn.setAttribute("data-tooltip", "Auto theme: OFF (double tap to start)");
+      }
+    });
+
+    // start auto mode initially
+    if (autoThemeEnabled) {
+      startAutoTheme();
+      themeToggleBtn.setAttribute("data-tooltip", "Auto theme: ON (double tap to stop)");
+    }
+
+    // Apply theme from settings chips
+    document.querySelectorAll("[data-set-theme]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const theme = btn.getAttribute("data-set-theme");
+        localStorage.setItem(THEME_KEY, theme);
+        applyTheme(theme);
+        highlightThemeChip(theme);
+        const idx = THEME_SEQUENCE.indexOf(theme);
+        if (idx !== -1) {
+          autoThemeIndex = idx;
+        }
+      });
+    });
+
+    // Font size from settings
+    document.querySelectorAll("[data-font]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const size = btn.getAttribute("data-font");
+        localStorage.setItem(FONT_KEY, size);
+        applyFontSize(size);
+        highlightFontChip(size);
+      });
+    });
+
+    const animationsToggle = document.getElementById("animations-toggle");
+    animationsToggle.checked = savedAnim;
+
+    animationsToggle.addEventListener("change", () => {
+      const enabled = animationsToggle.checked;
+      localStorage.setItem(ANIM_KEY, String(enabled));
+      applyAnimations(enabled);
+      if (!enabled) {
+        document.body.classList.add("page-loaded");
+        document.documentElement.classList.add("no-animations");
+        document.querySelectorAll(".reveal").forEach(el => {
+          el.classList.add("visible");
+        });
+      } else {
+        location.reload();
+      }
+    });
+
+    // Settings panel toggle
+    const settingsToggle = document.getElementById("settings-toggle");
+    const settingsBody = document.getElementById("settings-body");
+    settingsToggle.addEventListener("click", () => {
+      settingsBody.classList.toggle("hidden");
+    });
+
+    // Project details modal
+    const projectsData = {
+      steg: {
+        title: "Steganography Tool",
+        meta: "Python · Security · 2025",
+        summary:
+          "Secure data hiding toolkit that combines cryptography with adaptive LSB steganography for practical, real-world communication.",
+        highlights: [
+          "Developed a Python-based data-hiding tool using AES-256 and adaptive LSB to securely embed payloads in images and audio.",
+          "Integrated CRC checks and redundancy to ensure reliable decoding with minimal distortion.",
+          "Designed a simple workflow for encode/decode operations that can be used by non-technical users."
+        ],
+        details:
+          "This project explores both cryptography and steganography. The tool supports configurable payload sizes, multiple cover formats, and basic error handling. It can be extended to support more advanced cover selection, different cipher modes, or a GUI front-end."
+      },
+      exit: {
+        title: "Student Exit Survey Web App",
+        meta: "PHP · MySQL · JS · Python · Feb–May 2025",
+        summary:
+          "End-to-end web application to collect, store, and analyze student feedback with PO-based analytics.",
+        highlights: [
+          "Built a secure feedback system with authentication and automated MySQL data ingestion.",
+          "Implemented PO analytics and interactive visual reports for faculty and administrators.",
+          "Deployed on the college intranet, enabling real-time access to survey insights."
+        ],
+        details:
+          "The system supports survey creation, student login, data export, and analytics dashboards. It focuses on reliability, structured data, and mapping survey questions to program outcomes (POs). Future enhancements can include improved visualizations, role-based permissions, and integration with other academic tools."
+      },
+      chat: {
+        title: "Secure Chat Web App",
+        meta: "Python · Flask-SocketIO · Feb–Jun 2025",
+        summary:
+          "Real-time encrypted chat platform with integrity checks, file sharing, and token-based authentication.",
+        highlights: [
+          "Implemented real-time messaging and file sharing secured with AES/RSA and token-based authentication.",
+          "Added SHA-256 integrity checks and key rotation for confidential, tamper-proof communication.",
+          "Designed message flows to minimize latency while keeping strong security guarantees."
+        ],
+        details:
+          "The app is built around WebSockets for instant communication, with encryption applied at the application layer. It can be extended to support group chats, message expiry, or integration with mobile clients. This project demonstrates both backend security and real-time application design."
+      }
+    };
+
+    const modalBackdrop = document.getElementById("project-modal-backdrop");
+    const modalTitle = document.getElementById("modal-title");
+    const modalMeta = document.getElementById("modal-meta");
+    const modalSummary = document.getElementById("modal-summary");
+    const modalHighlights = document.getElementById("modal-highlights");
+    const modalDetails = document.getElementById("modal-details");
+    const modalCloseBtn = document.getElementById("modal-close-btn");
+
+    function openProjectModal(projectKey) {
+      const data = projectsData[projectKey];
+      if (!data) return;
+      modalTitle.textContent = data.title;
+      modalMeta.textContent = data.meta;
+      modalSummary.textContent = data.summary;
+
+      modalHighlights.innerHTML = "";
+      data.highlights.forEach(text => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        modalHighlights.appendChild(li);
+      });
+
+      modalDetails.textContent = data.details;
+      modalBackdrop.classList.remove("hidden");
+    }
+
+    function closeProjectModal() {
+      modalBackdrop.classList.add("hidden");
+    }
+
+    document.querySelectorAll("[data-project]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-project");
+        openProjectModal(key);
+      });
+    });
+
+    modalCloseBtn.addEventListener("click", closeProjectModal);
+    modalBackdrop.addEventListener("click", e => {
+      if (e.target === modalBackdrop) closeProjectModal();
+    });
+
+    // Image modal for experience + realtime + cert images
+    const mediaModalBackdrop = document.getElementById("media-modal-backdrop");
+    const mediaModalCloseBtn = document.getElementById("media-modal-close-btn");
+    const mediaModalContent = document.getElementById("media-modal-content");
+    const mediaModalCaption = document.getElementById("media-modal-caption");
+
+    function openImageModal(src, caption) {
+      mediaModalContent.innerHTML = "";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = caption || "Preview image";
+      mediaModalContent.appendChild(img);
+      mediaModalCaption.textContent = caption || "";
+      mediaModalBackdrop.classList.remove("hidden");
+    }
+
+    function closeMediaModal() {
+      mediaModalBackdrop.classList.add("hidden");
+      mediaModalContent.innerHTML = "";
+      mediaModalCaption.textContent = "";
+    }
+
+    document.querySelectorAll("[data-exp-img]").forEach(el => {
+      el.addEventListener("click", () => {
+        const src = el.getAttribute("data-exp-img");
+        const caption = el.getAttribute("data-exp-caption") || "";
+        if (src) openImageModal(src, caption);
+      });
+    });
+
+    mediaModalCloseBtn.addEventListener("click", closeMediaModal);
+    mediaModalBackdrop.addEventListener("click", e => {
+      if (e.target === mediaModalBackdrop) closeMediaModal();
+    });
+
+    // Escape key closes modals
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") {
+        if (!modalBackdrop.classList.contains("hidden")) closeProjectModal();
+        if (!mediaModalBackdrop.classList.contains("hidden")) closeMediaModal();
+      }
+    });
+  </script>
+</body>
+</html>
